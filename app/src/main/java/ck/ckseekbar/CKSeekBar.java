@@ -521,7 +521,7 @@ public class CKSeekBar<T extends Number> extends AppCompatImageView {
         super.onDraw(canvas);
 
         paint.setStyle(Paint.Style.FILL_AND_STROKE);
-        paint.setColor(getResources().getColor(R.color.red));
+        paint.setColor(getResources().getColor(R.color.ckred));
         paint.setAntiAlias(true);
 
         // draw min and max labels

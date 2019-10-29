@@ -182,32 +182,27 @@ public class CKSeekBar<T extends Number> extends AppCompatImageView {
             Drawable rightDrawble = a.getDrawable(R.styleable.CKSeekBar_rightDraw);
 
             if(leftDrawble == null){
-                leftDrawble = ContextCompat.getDrawable(getContext(), R.drawable.circle);
+                leftDrawble = getContext().getResources().getDrawable(R.drawable.circle);
             }
 
             if(rightDrawble == null){
-                rightDrawble = ContextCompat.getDrawable(getContext(), R.drawable.circle);
+                rightDrawble = getContext().getResources().getDrawable(R.drawable.circle);
             }
 
-            if(leftDrawble != null && rightDrawble != null){
+            Bitmap leftBitmap = resizeBitmap(getContext(), ((BitmapDrawable) leftDrawble).getBitmap());
+            Bitmap rightBitmap = resizeBitmap(getContext(), ((BitmapDrawable) rightDrawble).getBitmap());
 
-                Bitmap leftBitmap = resizeBitmap(getContext(), ((BitmapDrawable) leftDrawble).getBitmap());
-                Bitmap rightBitmap = resizeBitmap(getContext(), ((BitmapDrawable) rightDrawble).getBitmap());
+            thumbImage = leftBitmap;
+            thumbPressedImage = leftBitmap;
+            thumbDisabledImage = leftBitmap;
 
-                thumbImage = leftBitmap;
-                thumbPressedImage = leftBitmap;
-                thumbDisabledImage = leftBitmap;
-
-                thumbImageRight = rightBitmap;
+            thumbImageRight = rightBitmap;
 
 
+            thumbWidth = thumbImage.getWidth();
 
-
-                thumbWidth = thumbImage.getWidth();
-
-                thumbHalfWidth = (thumbWidth * 1.1f);
-                thumbHalfHeight = 0.5f * thumbImage.getHeight();
-            }
+            thumbHalfWidth = (thumbWidth * 1.1f);
+            thumbHalfHeight = 0.5f * thumbImage.getHeight();
 
             a.recycle();
         }

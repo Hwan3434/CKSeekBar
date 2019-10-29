@@ -189,14 +189,11 @@ public class CKSeekBar<T extends Number> extends AppCompatImageView {
                 rightDrawble = getContext().getResources().getDrawable(R.drawable.circle);
             }
 
-            Bitmap leftBitmap = resizeBitmap(getContext(), ((BitmapDrawable) leftDrawble).getBitmap());
-            Bitmap rightBitmap = resizeBitmap(getContext(), ((BitmapDrawable) rightDrawble).getBitmap());
+            thumbImage = ((BitmapDrawable) leftDrawble).getBitmap();
+            thumbPressedImage = ((BitmapDrawable) leftDrawble).getBitmap();
+            thumbDisabledImage = ((BitmapDrawable) leftDrawble).getBitmap();
 
-            thumbImage = leftBitmap;
-            thumbPressedImage = leftBitmap;
-            thumbDisabledImage = leftBitmap;
-
-            thumbImageRight = rightBitmap;
+            thumbImageRight = ((BitmapDrawable) rightDrawble).getBitmap();
 
 
             thumbWidth = thumbImage.getWidth();

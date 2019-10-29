@@ -19,6 +19,7 @@ import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.ViewConfiguration;
 
+import static ck.ckseekbar.PixelUtil.pxToDp;
 import static ck.ckseekbar.PixelUtil.resizeBitmap;
 
 /**
@@ -182,19 +183,19 @@ public class CKSeekBar<T extends Number> extends AppCompatImageView {
             Drawable rightDrawble = a.getDrawable(R.styleable.CKSeekBar_rightDraw);
 
             if(leftDrawble == null){
-                leftDrawble = getContext().getResources().getDrawable(R.drawable.circle);
+                leftDrawble = getContext().getResources().getDrawable(R.drawable.baseline_cloud_black_48);
             }
 
             if(rightDrawble == null){
-                rightDrawble = getContext().getResources().getDrawable(R.drawable.circle);
+                rightDrawble = getContext().getResources().getDrawable(R.drawable.baseline_cloud_black_48);
             }
 
 
-            thumbImage = resizeBitmap(((BitmapDrawable) leftDrawble).getBitmap(),50);
-            thumbPressedImage = resizeBitmap(((BitmapDrawable) leftDrawble).getBitmap(),50);
-            thumbDisabledImage = resizeBitmap(((BitmapDrawable) leftDrawble).getBitmap(),50);
+            thumbImage = resizeBitmap(((BitmapDrawable) leftDrawble).getBitmap(),pxToDp(getContext(), 100));
+            thumbPressedImage = resizeBitmap(((BitmapDrawable) leftDrawble).getBitmap(),pxToDp(getContext(), 100));
+            thumbDisabledImage = resizeBitmap(((BitmapDrawable) leftDrawble).getBitmap(),pxToDp(getContext(), 100));
 
-            thumbImageRight = resizeBitmap(((BitmapDrawable) rightDrawble).getBitmap(),50);
+            thumbImageRight = resizeBitmap(((BitmapDrawable) rightDrawble).getBitmap(),pxToDp(getContext(), 100));
 
 
             thumbWidth = thumbImage.getWidth();

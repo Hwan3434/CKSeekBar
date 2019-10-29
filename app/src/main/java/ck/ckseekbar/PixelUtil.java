@@ -49,6 +49,8 @@ class PixelUtil {
     static Bitmap resizeBitmap(Bitmap source, int maxResolution) {
 
 
+
+
         int width = source.getWidth();
         int height = source.getHeight();
         int newWidth = width;

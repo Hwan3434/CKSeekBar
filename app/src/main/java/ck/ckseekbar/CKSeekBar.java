@@ -191,11 +191,11 @@ public class CKSeekBar<T extends Number> extends AppCompatImageView {
             }
 
 
-            thumbImage = resizeBitmap(((BitmapDrawable) leftDrawble).getBitmap(),pxToDp(getContext(), 200));
-            thumbPressedImage = resizeBitmap(((BitmapDrawable) leftDrawble).getBitmap(),pxToDp(getContext(), 200));
-            thumbDisabledImage = resizeBitmap(((BitmapDrawable) leftDrawble).getBitmap(),pxToDp(getContext(), 200));
+            thumbImage = resizeBitmap(((BitmapDrawable) leftDrawble).getBitmap(),pxToDp(getContext(), 300));
+            thumbPressedImage = resizeBitmap(((BitmapDrawable) leftDrawble).getBitmap(),pxToDp(getContext(), 300));
+            thumbDisabledImage = resizeBitmap(((BitmapDrawable) leftDrawble).getBitmap(),pxToDp(getContext(), 300));
 
-            thumbImageRight = resizeBitmap(((BitmapDrawable) rightDrawble).getBitmap(),pxToDp(getContext(), 200));
+            thumbImageRight = resizeBitmap(((BitmapDrawable) rightDrawble).getBitmap(),pxToDp(getContext(), 300));
 
 
             thumbWidth = thumbImage.getWidth();
@@ -210,7 +210,7 @@ public class CKSeekBar<T extends Number> extends AppCompatImageView {
 
         INITIAL_PADDING = PixelUtil.dpToPx(context, INITIAL_PADDING_IN_DP);
 
-        int textsize = PixelUtil.pxToDp(context, 80);
+        int textsize = PixelUtil.pxToDp(context, 100);
 
         mTextSize = textsize;
         mDistanceToTop = textsize;

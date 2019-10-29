@@ -188,14 +188,13 @@ public class CKSeekBar<T extends Number> extends AppCompatImageView {
             if(rightDrawble == null){
                 rightDrawble = getContext().getResources().getDrawable(R.drawable.circle);
             }
-            leftDrawble.setBounds(0,0,50,50);
-            rightDrawble.setBounds(0,0,50,50);
 
-            thumbImage = ((BitmapDrawable) leftDrawble).getBitmap();
-            thumbPressedImage = ((BitmapDrawable) leftDrawble).getBitmap();
-            thumbDisabledImage = ((BitmapDrawable) leftDrawble).getBitmap();
 
-            thumbImageRight = ((BitmapDrawable) rightDrawble).getBitmap();
+            thumbImage = resizeBitmap(((BitmapDrawable) leftDrawble).getBitmap(),50);
+            thumbPressedImage = resizeBitmap(((BitmapDrawable) leftDrawble).getBitmap(),50);
+            thumbDisabledImage = resizeBitmap(((BitmapDrawable) leftDrawble).getBitmap(),50);
+
+            thumbImageRight = resizeBitmap(((BitmapDrawable) rightDrawble).getBitmap(),50);
 
 
             thumbWidth = thumbImage.getWidth();
@@ -792,8 +791,6 @@ public class CKSeekBar<T extends Number> extends AppCompatImageView {
     private static enum Thumb {
         MIN, MAX
     }
-
-    ;
 
     /**
      * Utility enumeration used to convert between Numbers and doubles.

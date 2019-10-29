@@ -18,42 +18,64 @@ package ck.ckseekbar;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
+import android.provider.MediaStore;
 import android.util.DisplayMetrics;
 
 /**
  * Util class for converting between dp, px and other magical pixel units
  */
-public class PixelUtil {
+class PixelUtil {
 
     private PixelUtil() {
     }
 
-    public static int dpToPx(Context context, int dp) {
+    static int dpToPx(Context context, int dp) {
         int px = Math.round(dp * getPixelScaleFactor(context));
         return px;
     }
 
-    public static int pxToDp(Context context, int px) {
+    static int pxToDp(Context context, int px) {
         int dp = Math.round(px / getPixelScaleFactor(context));
         return dp;
     }
 
-    private static float getPixelScaleFactor(Context context) {
+    static float getPixelScaleFactor(Context context) {
         DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
         return (displayMetrics.xdpi / DisplayMetrics.DENSITY_DEFAULT);
     }
 
-    public static Bitmap resizeBitmap(Context context, Bitmap original) {
+    static Bitmap resizeBitmap(Bitmap source, int maxResolution) {
 
-        int resizeWidth = pxToDp(context, 200);
 
-        double aspectRatio = (double) original.getHeight() / (double) original.getWidth();
-        int targetHeight = (int) (resizeWidth * aspectRatio);
-        Bitmap result = Bitmap.createScaledBitmap(original, resizeWidth, targetHeight, false);
-        if (result != original) {
-            original.recycle();
+        int width = source.getWidth();
+        int height = source.getHeight();
+        int newWidth = width;
+        int newHeight = height;
+        float rate = 0.0f;
+
+        if(width > height)
+        {
+            if(maxResolution < width)
+            {
+                rate = maxResolution / (float) width;
+                newHeight = (int) (height * rate);
+                newWidth = maxResolution;
+            }
         }
-        return result;
+        else
+        {
+            if(maxResolution < height)
+            {
+                rate = maxResolution / (float) height;
+                newWidth = (int) (width * rate);
+                newHeight = maxResolution;
+            }
+        }
+
+        return Bitmap.createScaledBitmap(source, newWidth, newHeight, true);
+
     }
 
 

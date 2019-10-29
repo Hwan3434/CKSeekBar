@@ -18,10 +18,7 @@ package ck.ckseekbar;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.util.DisplayMetrics;
-
-import java.io.FileNotFoundException;
 
 /**
  * Util class for converting between dp, px and other magical pixel units

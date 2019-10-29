@@ -12,6 +12,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
 import android.util.TypedValue;
@@ -179,6 +180,14 @@ public class CKSeekBar<T extends Number> extends AppCompatImageView {
 
             Drawable leftDrawble = a.getDrawable(R.styleable.CKSeekBar_leftDraw);
             Drawable rightDrawble = a.getDrawable(R.styleable.CKSeekBar_rightDraw);
+
+            if(leftDrawble == null){
+                leftDrawble = ContextCompat.getDrawable(getContext(), R.drawable.circle);
+            }
+
+            if(rightDrawble == null){
+                rightDrawble = ContextCompat.getDrawable(getContext(), R.drawable.circle);
+            }
 
             if(leftDrawble != null && rightDrawble != null){
 

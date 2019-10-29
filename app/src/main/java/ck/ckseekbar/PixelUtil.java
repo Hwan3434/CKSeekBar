@@ -1,0 +1,63 @@
+/*
+Copyright 2014 Yahoo Inc.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+
+package ck.ckseekbar;
+
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.DisplayMetrics;
+
+import java.io.FileNotFoundException;
+
+/**
+ * Util class for converting between dp, px and other magical pixel units
+ */
+public class PixelUtil {
+
+    private PixelUtil() {
+    }
+
+    public static int dpToPx(Context context, int dp) {
+        int px = Math.round(dp * getPixelScaleFactor(context));
+        return px;
+    }
+
+    public static int pxToDp(Context context, int px) {
+        int dp = Math.round(px / getPixelScaleFactor(context));
+        return dp;
+    }
+
+    private static float getPixelScaleFactor(Context context) {
+        DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
+        return (displayMetrics.xdpi / DisplayMetrics.DENSITY_DEFAULT);
+    }
+
+    public static Bitmap resizeBitmap(Context context, Bitmap original) {
+
+        int resizeWidth = pxToDp(context, 200);
+
+        double aspectRatio = (double) original.getHeight() / (double) original.getWidth();
+        int targetHeight = (int) (resizeWidth * aspectRatio);
+        Bitmap result = Bitmap.createScaledBitmap(original, resizeWidth, targetHeight, false);
+        if (result != original) {
+            original.recycle();
+        }
+        return result;
+    }
+
+
+}

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="CKSeekBar">
+        <attr name="absoluteMinValue" format="integer|float" />
+        <attr name="absoluteMaxValue" format="integer|float" />
+        <attr name="singleThumb" format="boolean" />
+        <attr name="lineHighlight" format="boolean" />
+        <attr name="lineHeight" format="dimension" />
+        <attr name="leftDraw" format="reference" />
+        <attr name="rightDraw" format="reference" />
+        <attr name="pressedtDraw" format="reference" />
+    </declare-styleable>
+
+</resources>

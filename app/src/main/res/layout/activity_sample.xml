@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="ck.sample.ActivitySample">
+
+    <ck.ckseekbar.CKSeekBar
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_anchorGravity="center"
+        app:singleThumb="false"
+        app:absoluteMinValue="0"
+        app:absoluteMaxValue="100"
+        app:leftDraw="@drawable/ccbtn"
+        app:rightDraw="@drawable/ccbtn2"
+        />
+
+</android.support.design.widget.CoordinatorLayout>

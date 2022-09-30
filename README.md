@@ -16,6 +16,6 @@ fork : https://github.com/anothem/android-range-seek-bar/blob/master/rangeseekba
 사용되지않는 기능 제거
 
 ----------------------------------------------------------------------------------------------------
-
-(https://github.com/anothem/android-range-seek-bar/blob/master/demo_screenshot.png)
+포크프로젝트 예제 사진
+![사진](https://github.com/anothem/android-range-seek-bar/blob/master/demo_screenshot.png)
 
